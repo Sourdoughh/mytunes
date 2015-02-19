@@ -20,10 +20,6 @@ var LibraryView = Backbone.View.extend({
         return new LibraryEntryView({model: song}).render();
       })
     );
-
-
-    // this.$el.html('<h1>Queue</h1>')
-
   }
 
 });
