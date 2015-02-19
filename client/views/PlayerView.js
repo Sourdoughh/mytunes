@@ -21,8 +21,3 @@ var PlayerView = Backbone.View.extend({
     this.model.ended;
   }
 }, this);
-
-var test = function(){
-  console.log('woo');
-}
-
