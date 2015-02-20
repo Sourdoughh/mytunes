@@ -2,7 +2,6 @@
 var AppView = Backbone.View.extend({
 
   initialize: function(params){
-    console.log(this.$el);
     this.playerView = new PlayerView({model: this.model.get('currentSong')});
     this.libraryView = new LibraryView({collection: this.model.get('library')});
     this.queueView = new SongQueueView({collection: this.model.get('songQueue')});
@@ -12,17 +11,6 @@ var AppView = Backbone.View.extend({
     this.model.on('change:currentSong', function(model){
       this.playerView.setSong(model.get('currentSong'));
     }, this);
-
-    // this syntax vs model.on('add:songQueue') syntax
-    this.model.get('songQueue').on('add', function(){
-      console.log("songQueue.length trigger", this.model.get('songQueue').length);
-      this.queueView.render();
-    }, this),
-
-    this.model.get('songQueue').on('remove', function(){
-      console.log("dequeue");
-      this.queueView.render();
-    }, this)
   },
 
   render: function(){
